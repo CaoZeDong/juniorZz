@@ -1,0 +1,75 @@
+spring:
+  application:
+    name: web
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+    default-property-inclusion: non_null
+  profiles:
+    active: dev
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    password:
+    jedis:
+      pool:
+        max-active: 2000
+        max-idle: 300
+        min-idle: 100
+        max-wait: 3000
+        time-between-eviction-runs: 30000
+    timeout: 10000
+    lettuce:
+      shutdown-timeout: 1000
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+    sentinel:
+      transport:
+        # sentinel dashboard的访问地址，根据上面准备工作中启动的实例配置
+        dashboard: 127.0.0.1:8849
+        port: 8719
+      datasource:
+        ds1:
+          nacos:
+            namespace:
+            # nacos的访问地址，，根据上面准备工作中启动的实例配置
+            server-addr: ${spring.cloud.nacos.discovery.server-addr}
+            # nacos中存储规则的dataId
+            data-id: ${spring.application.name}-${spring.profiles.active}-sentinel
+            # nacos中存储规则的groupId
+            group-id: DEFAULT_GROUP
+            data-type: json
+            #该参数是spring cloud alibaba用来定义存储的规则类型。所有的规则类型可查看枚举类：org.springframework.cloud.alibaba.sentinel.datasource.RuleType
+            rule-type: degrade
+  sleuth:
+    sampler:
+      probability: 1.0
+
+logging:
+  config: classpath:logback-spring.xml
+server:
+  port: 8001
+
+
+feign:
+  httpclient:
+    enabled: false
+  okhttp:
+    enabled: true
+  sentinel:
+    enabled: true
+  client:
+    config:
+      default:
+        connectTimeout: 20000 #毫秒    连接超时时间
+        readTimeout: 20000 #毫秒      逻辑处理超时时间
+        loggerLevel: basic
+        OkToRetryOnAllOperations: true    # 是否对所有操作都进行重试
+        MaxAutoRetries: 2     #对当前实例的最大重试次数(请求服务超时6s则会再请求一次)
+        MaxAutoRetriesNextServer: 1     # 切换实例的最大重试次数(如果还失败就切换下
+ribbon:
+  eager-load:
+    enabled: true
+    clients: account,customer

@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: account
+  profiles:
+    active: dev
+  main:
+    allow-bean-definition-overriding: true
+#开启端点
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: ALWAYS
