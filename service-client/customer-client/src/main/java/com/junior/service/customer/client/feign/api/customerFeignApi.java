@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.validation.Valid;
 import java.util.List;
 
 /**
@@ -18,5 +19,5 @@ public interface customerFeignApi {
      Result<List<customerDto>> list();
 
     @GetMapping(value = "/getId", produces = "application/json; charset=utf-8")
-    Result<List<customerDto>> getId(@RequestParam(value = "uid")Integer uid);
+    Result<customerDto> getId(@Valid @RequestParam(value = "uid")Integer uid);
 }

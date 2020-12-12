@@ -1,6 +1,6 @@
-package com.junior.custoemr.mapper;
+package com.junior.account.mapper;
 
-import com.junior.custoemr.model.account;
+import com.junior.account.model.account;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;

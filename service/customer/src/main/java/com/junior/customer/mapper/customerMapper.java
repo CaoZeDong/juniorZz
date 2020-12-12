@@ -1,6 +1,6 @@
-package com.junior.custoemr.mapper;
+package com.junior.customer.mapper;
 
-import com.junior.custoemr.model.customer;
+import com.junior.customer.model.customer;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
@@ -15,7 +15,7 @@ public interface customerMapper {
 
     List<customer> list();
 
-    customer getId(@Param(value = "uid")Integer uid);
+    customer getId(@Param(value = "uid") Integer uid);
 
 
 }

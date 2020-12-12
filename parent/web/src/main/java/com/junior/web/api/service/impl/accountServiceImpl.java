@@ -31,8 +31,8 @@ public class accountServiceImpl implements accountService {
                    ls->{
                        accountVo vo =new accountVo();
                        BeanUtils.copyProperties(ls,vo);
-                       List<customerDto> cusList=customerFeign.list().getData();
-                       vo.setMoney(cusList.get(0).getMoney());
+                       customerDto cusList=customerFeign.getId(ls.getId()).getData();
+                       vo.setMoney(cusList.getMoney());
                        return vo;
                    }
 

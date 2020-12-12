@@ -31,17 +31,6 @@
         </rollingPolicy>
     </appender>
 
-    <!--    <appender name="logstash" class="net.logstash.logback.appender.LogstashTcpSocketAppender">-->
-    <!--        <param name="Encoding" value="UTF-8"/>-->
-    <!--        <remoteHost>127.0.0.1</remoteHost>-->
-    <!--        <port>10514</port>-->
-    <!--        &lt;!&ndash; <filter class="com.program.interceptor.ELKFilter"/>&ndash;&gt;-->
-    <!--        &lt;!&ndash; encoder is required &ndash;&gt;-->
-    <!--        <encoder charset="UTF-8" class="net.logstash.logback.encoder.LogstashEncoder">-->
-    <!--            <customFields>{"appname":"${appName}"}</customFields>-->
-    <!--        </encoder>-->
-    <!--    </appender>-->
-
     <logger name="com.alibaba.nacos.client.naming" level="ERROR" additivity="true"/>
     <!-- 减少部分debug日志 -->
     <Logger name="org.springframework.context" level="WARN"/>
@@ -55,7 +44,7 @@
     <logger name="io.lettuce.core" level="ERROR"/>
     <logger name="org.springframework.data.redis.core" level="ERROR"/>
     <logger name="net.javacrumbs.shedlock.core" level="ERROR"/>
-    <Logger name="com.junior.custoemr.mapper" level="DEBUG"/>
+    <Logger name="com.junior.customer.mapper" level="DEBUG"/>
     <Logger name="com.junior" level="INFO"/>
     <root level="DEBUG">
         <appender-ref ref="fileLog"/>

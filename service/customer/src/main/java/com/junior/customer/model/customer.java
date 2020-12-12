@@ -1,7 +1,6 @@
-package com.junior.custoemr.model;
+package com.junior.customer.model;
 
 import lombok.Data;
-import org.springframework.beans.factory.annotation.Value;
 
 import java.math.BigDecimal;
 

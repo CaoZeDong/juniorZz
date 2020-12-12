@@ -89,11 +89,11 @@ logging:
     ssm.app.mapper : debug
   config: classpath:logback-spring.xml
 
-  #Feign配置
-  feign:
-    httpclient:
-      enabled: false
-    okhttp:
-      enabled: true
-    sentinel:
-      enabled: true
+#Feign配置
+feign:
+  httpclient:
+    enabled: false
+  okhttp:
+    enabled: true
+  sentinel:
+    enabled: true

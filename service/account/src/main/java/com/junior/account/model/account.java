@@ -1,4 +1,4 @@
-package com.junior.custoemr.model;
+package com.junior.account.model;
 
 import lombok.Data;
 
