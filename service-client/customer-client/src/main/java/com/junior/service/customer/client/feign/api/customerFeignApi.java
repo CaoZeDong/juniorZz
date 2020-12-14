@@ -19,5 +19,5 @@ public interface customerFeignApi {
      Result<List<customerDto>> list();
 
     @GetMapping(value = "/getId", produces = "application/json; charset=utf-8")
-    Result<customerDto> getId(@Valid @RequestParam(value = "uid")Integer uid);
+    Result<customerDto> getId(@RequestParam(value = "uid")Integer uid);
 }

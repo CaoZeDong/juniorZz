@@ -17,7 +17,7 @@ import java.util.List;
  */
 @Slf4j
 @RestController
-@RequestMapping("/rpc/custoemr")
+@RequestMapping("/rpc/customer")
 public class custoemrRpc implements customerFeign {
   @Resource(name = "customerServiceImpl")
   com.junior.customer.service.customerService customerService;
