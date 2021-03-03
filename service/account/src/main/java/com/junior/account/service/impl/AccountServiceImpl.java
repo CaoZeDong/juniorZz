@@ -1,7 +1,7 @@
 package com.junior.account.service.impl;
 
 import com.junior.account.mapper.accountMapper;
-import com.junior.account.model.account;
+import com.junior.account.model.Account;
 import com.junior.account.service.accountService;
 import com.junior.service.account.client.dto.accountDto;
 import org.springframework.beans.BeanUtils;
@@ -22,7 +22,7 @@ public class AccountServiceImpl implements accountService {
 
     @Override
     public List<accountDto> list() {
-        List<account>lists=accountMapper.list();
+        List<Account>lists=accountMapper.list();
         List<accountDto> dto=lists.stream().map(
                 ls -> {
                     accountDto dtos=new accountDto();
